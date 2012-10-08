@@ -8,6 +8,14 @@
 	function dnsbl_check($ip_address) {
 	global $ibforums;
 	
+		$white_list = array(
+			'74.196.101.190',
+		);
+		
+		if(in_array($ip_address, $white_list)){
+			return array();
+		}
+	
 		// Make a reversed IP or w/e...
 		$revmake=explode(".", $ip_address);
 		$rev=$revmake[3].".".$revmake[2].".".$revmake[1].".".$revmake[0];
